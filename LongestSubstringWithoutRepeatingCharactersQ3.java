@@ -1,33 +1,37 @@
 public class LongestSubstringWithoutRepeatingCharactersQ3 {
     public static void main(String[] args) {
-        String subString = "pwwkew";
+        String subString = "bbbb";
         String ans = longeString(subString);
         System.out.println(ans);
     }
 
     static String longeString(String oriiString) {
         String ans = oriiString.charAt(0) + "";
-        String ans1 = oriiString.charAt(0) + "";
-        String ans2 = "";
+        String l1 = oriiString.charAt(0) + "";
+        String l2 = "";
         for (int i = 1; i < oriiString.length(); i++) {
-            String isTrue = test(oriiString.charAt(i), ans1);
-            if (isTrue.length() == 0 | ans2.length() > 0) {
-                String anstrue = test(oriiString.charAt(i), ans2);
-                if (anstrue.length() == 0) {
-                    if (ans1.length() > ans2.length()) {
-                        ans = ans1;
-                        ans1 = "";
-                        ans2 = "";
-                    } else {
-                        ans = ans2;
-                        ans1 = "";
-                        ans2 = "";
-                    }
+            if (!(l2.length() > 0)) {
+                String newChar = test(oriiString.charAt(i), l1);
+                if (newChar.length() == 0) {
+                    l2 = oriiString.charAt(i) + "";
                 } else {
-                    ans2 = anstrue;
+                    l1 = newChar;
                 }
             } else {
-                ans1 = isTrue;
+                String newL2 = test(oriiString.charAt(i), l2);
+                if (newL2.length() == 0) {
+                    if (l1.length() > l2.length()) {
+                        ans = l1;
+                        l1 = "";
+                        l2 = "";
+                    } else {
+                        ans = l2;
+                        l1 = "";
+                        l2 = "";
+                    }
+                } else {
+                    l2 = newL2;
+                }
             }
 
         }
@@ -41,7 +45,6 @@ public class LongestSubstringWithoutRepeatingCharactersQ3 {
             if (left == newchar) {
                 return "";
             }
-
         }
         return ans + newchar;
     }
