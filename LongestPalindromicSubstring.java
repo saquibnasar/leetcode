@@ -1,10 +1,10 @@
 public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
-        String string = "cbd";
+        String string = "chd";
 
         String ans = longestPalindromicSubstring(0, 1, string);
-        System.out.println(ans);
+        System.out.println(!ans.isEmpty());
         // output "bab"
 
         // https://leetcode.com/problems/longest-palindromic-substring/description/
@@ -13,7 +13,7 @@ public class LongestPalindromicSubstring {
 
     static String longestPalindromicSubstring(int curret, int check, String s) {
 
-        while (curret < check) {
+        while (curret < check && curret + 1 != s.length()) {
             if (s.charAt(curret) == s.charAt(check)) {
                 Boolean ans = palindromic(curret + 1, check - 1, s);
                 if (ans) {
