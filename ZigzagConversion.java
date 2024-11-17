@@ -1,6 +1,12 @@
 public class ZigzagConversion {
     public static void main(String[] args) {
-t
+        String s = "PAYPALISHIRING";
+
+        // ans = "PAHNAPLSIIGYIR"
+    }
+
+    public static String ZigzagConversionAns(String s) {
+        return "";
     }
 
 }
