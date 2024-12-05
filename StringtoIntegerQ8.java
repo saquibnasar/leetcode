@@ -1,4 +1,4 @@
-public class StringtoInteger {
+public class StringtoIntegerQ8 {
 
     public static void main(String[] args) {
         String str = " -042";
