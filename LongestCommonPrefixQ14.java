@@ -3,7 +3,7 @@ public class  LongestCommonPrefixQ14 {
         String[] strs = {"flower","flow","flight"};
         System.out.println(longestCommonPrefix(strs));
     }
-    ˝
+    
     public static String longestCommonPrefix(String[] strs) {
         String compareString = strs[0];
         String ans = "";
