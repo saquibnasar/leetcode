@@ -1,8 +1,30 @@
+import java.util.HashSet;
+
 public class LongestSubstringWithoutRepeatingCharactersQ3 {
     public static void main(String[] args) {
-        String subString = "bbbb";
-        String ans = longeString(subString);
-        System.out.println(ans);
+        String subString = "abcjkts";
+        // String ans = longeString(subString);
+        System.out.println(LengthOfLongestSubstring(subString));
+    }
+
+    static int LengthOfLongestSubstring(String s) {
+        int aPointer = 0;
+        int bPointer = 0;
+        int max = 0;
+        HashSet<Character> hashSet = new HashSet<>();
+        while (bPointer < s.length()) {
+            
+            if(!hashSet.contains(s.charAt(bPointer))) {
+                hashSet.add(s.charAt(bPointer));
+                bPointer++;
+                max = Math.max(hashSet.size(), max);
+            } else {
+                hashSet.remove(s.charAt(aPointer));
+                aPointer++;
+            }
+
+        }
+        return max;
     }
 
     static String longeString(String oriiString) {
