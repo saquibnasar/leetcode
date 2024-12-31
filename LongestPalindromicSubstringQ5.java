@@ -1,7 +1,3 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class LongestPalindromicSubstringQ5 {
 
     public static void main(String[] args) {
