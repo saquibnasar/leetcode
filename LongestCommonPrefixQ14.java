@@ -1,21 +1,25 @@
-public class  LongestCommonPrefixQ14 {
+public class LongestCommonPrefixQ14 {
     public static void main(String[] args) {
-        String[] strs = {"flower","flow","flight"};
+        String[] strs = { "flower", "fkow", "" };
         System.out.println(longestCommonPrefix(strs));
     }
-    
+
     public static String longestCommonPrefix(String[] strs) {
         String compareString = strs[0];
         String ans = "";
-        int i = 0;
-        while (i < compareString.length()) {
-            for (int j = 1; j < strs.length; j++) {
-                if(compareString.charAt(i) != strs[j].charAt(i)) {
+        int stringIndex = 0;
+        while (stringIndex < compareString.length()) {
+            for (int arrayIndex = 0; arrayIndex < strs.length; arrayIndex++) {
+                if (strs[arrayIndex].length() == 0
+                        || compareString.charAt(stringIndex) != strs[arrayIndex].charAt(stringIndex)) {
                     return ans;
                 }
-        }
-        ans = ans + compareString.charAt(i);
-            i++;
+                if (compareString.length() > strs[arrayIndex].length()) {
+                    compareString = strs[arrayIndex];
+                }
+            }
+            ans = ans + compareString.charAt(stringIndex);
+            stringIndex++;
         }
         return ans;
     }
