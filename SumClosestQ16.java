@@ -1,6 +1,7 @@
 public class SumClosestQ16 {
     public static void main(String[] args) {
         int[] nums = { -1, 2, 1, -4 };
+        // sort this then sove this
         int target = 1;
         System.out.println(threeSumClosest(nums, target));
 
