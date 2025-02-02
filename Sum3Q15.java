@@ -4,9 +4,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Sum3Q16 {
+public class Sum3Q15 {
     public static void main(String[] args) {
-        int[] num = { -1, 0, 1, 2, -1, -4 };
+        int[] num = { -3, 3, 4, -3, 1, 2 };
         System.out.println(sum3(num));
 
     }
