@@ -44,6 +44,40 @@ public class Sum3Q15 {
         return new ArrayList<>(result);
     }
 
+    // public static List<int[]> sum3(int[] nums) {
+
+    // if (nums == null || nums.length < 3)
+    // return new ArrayList<>();
+
+    // Arrays.sort(nums);
+    // List<int[]> li = new ArrayList<>();
+    // for (int i = 0; i < nums.length - 2; i++) {
+    // if (i > 0 && nums[i] == nums[i - 1]) {
+    // continue;
+    // }
+    // int left = i + 1;
+    // int right = nums.length - 1;
+
+    // while (left < right) {
+    // int sum = nums[i] + nums[left] + nums[right];
+    // if (sum > 0) {
+    // right--;
+    // } else if (sum < 0) {
+    // left++;
+    // } else {
+    // li.add(new int[] { nums[i], nums[left], nums[right] });
+    // left++;
+    // while (nums[left] == nums[left - 1] && left < right) {
+    // left++;
+    // }
+    // }
+
+    // }
+    // }
+    // return li;
+
+    // }
+
     // public static ArrayList<Integer> sum3(int[] nums) {
     // if (nums.length < 3)
     // return new ArrayList<Integer>();
