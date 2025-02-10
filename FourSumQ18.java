@@ -27,8 +27,7 @@ public class FourSumQ18 {
                     continue;
                 }
                 quad.add(nums[i]);
-                // long newtarget = (target * 1l - nums[i] * 1l);
-                KSumRecursion(nums, result, quad, target - nums[i], k - 1, i + 1); // newtarget
+                KSumRecursion(nums, result, quad, target - nums[i], k - 1, i + 1);
                 quad.remove(quad.size() - 1);
             }
         } else {
