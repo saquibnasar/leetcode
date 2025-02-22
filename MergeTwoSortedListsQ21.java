@@ -7,26 +7,26 @@ public class MergeTwoSortedListsQ21 {
         System.out.println(Arrays.toString(mergeTwoLists(l1, l2)));
     }
 
-    static int[] mergeTwoLists(int[] l1, int[] l2) {
-        int[] ans = new int[l1.length + l2.length];
+    static int[] mergeTwoLists(int[] list1, int[] list2) {
+        int[] ans = new int[list1.length + list2.length];
 
         int i = 0;
         int j = 0;
-        while (i < l1.length && j < l2.length) {
-            if (l1[i] < l2[j]) {
-                ans[i + j] = l1[i];
+        while (i < list1.length && j < list2.length) {
+            if (list1[i] < list2[j]) {
+                ans[i + j] = list1[i];
                 i++;
             } else {
-                ans[i + j] = l2[j];
+                ans[i + j] = list2[j];
                 j++;
             }
         }
-        while (i < l1.length) {
-            ans[i + j] = l1[i];
+        while (i < list1.length) {
+            ans[i + j] = list1[i];
             i++;
         }
-        while (j < l2.length) {
-            ans[i + j] = l2[j];
+        while (j < list2.length) {
+            ans[i + j] = list2[j];
             j++;
         }
         return ans;
