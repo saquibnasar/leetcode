@@ -8,24 +8,25 @@ public class GenerateParenthesesQ22 {
     }
 
     public static List<String> generateParenthesis(int n) {
-        List<Character> stack = new ArrayList<>();
+        List<String> stack = new ArrayList<>();
         List<String> ans = new ArrayList<>();
         backString(n, 0, 0, stack, ans);
         return ans;
     }
 
-    public static void backString(int n, int openNum, int closeNum, List<Character> stack, List<String> ans) {
+    public static void backString(int n, int openNum, int closeNum, List<String> stack, List<String> ans) {
         if (openNum == closeNum && closeNum == n) {
-            ans.add(stack.toString());
+            String temp = String.join("", stack);
+            ans.add(temp);
             return;
         }
         if (openNum < n) {
-            stack.add('(');
+            stack.add("(");
             backString(n, openNum + 1, closeNum, stack, ans);
             stack.remove(stack.size() - 1);
         }
         if (closeNum < openNum) {
-            stack.add(')');
+            stack.add(")");
             backString(n, openNum, closeNum + 1, stack, ans);
             stack.remove(stack.size() - 1);
         }
