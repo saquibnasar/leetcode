@@ -8,25 +8,15 @@ public class DivideTwoIntegersQ29 {
 
     public static int divide(int dividend, int divisor) {
         int ans = 0;
-        int newDivisor = divisor;
+        int extraValue = 0;
 
-        if (newDivisor < 0) {
-            newDivisor = -divisor;
-        }
-        while (dividend >= divisor) {
+        int currentPointer = 0;
+        String dividendStr = String.valueOf(dividend);
 
-            if (newDivisor > dividend) {
-                return ans;
-            } else {
-                newDivisor = newDivisor + newDivisor;
-                ans++;
-                if (newDivisor > dividend) {
-                    if (divisor < 0) {
-                        return -ans;
-                    }
-
-                }
-
+        while (currentPointer < dividendStr.length()) {
+            int currentMath = Integer.parseInt(dividendStr.substring(currentPointer, currentPointer));
+            if (extraValue == 0) {
+                currentMath = Integer.parseInt(dividendStr.substring(currentPointer, currentPointer + 1));
             }
 
         }
