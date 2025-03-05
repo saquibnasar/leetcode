@@ -19,6 +19,9 @@ public class DivideTwoIntegersQ29 {
                 currentMath = Integer.parseInt(dividendStr.substring(currentPointer, currentPointer + 1));
             }
 
+            while (currentMath < divisor) {
+
+            }
         }
 
         return dividend / divisor;
