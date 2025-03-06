@@ -1,22 +1,35 @@
 public class DivideTwoIntegersQ29 {
     public static void main(String[] args) {
-        int dividend = -2147483647;
+        int dividend = -2147483648;
         int divisor = -1;
+        String test = String.valueOf(-1);
+        System.out.println(test);
         System.out.println(divide(dividend, divisor));
 
     }
 
     public static int divide(int dividend, int divisor) {
+        int maxInt = 2147483647;
+        int minInt = -2147483648;
+
         int ans = 0;
         int extraValue = 0;
         int originalDivisor = divisor;
         int originalDividend = dividend;
-        if (dividend < 0 && divisor > 0 || dividend > 0 && divisor < 0 || dividend < 0 && divisor < 0) {
-            // find way to make it positive without changing the sign
-            divisor = Math.abs(divisor);
-            dividend = Math.abs(dividend);
-        }
+        // if (dividend == minInt) {
+        // dividend = maxInt;
+        // }
+        // if (dividend < 0 && divisor > 0 || dividend > 0 && divisor < 0 || dividend <
+        // 0 && divisor < 0) {
+        // // find way to make it positive without changing the sign
+        // divisor = Math.abs(divisor);
+        // dividend = Math.abs(dividend);
+        // }
+        divisor = Math.abs(divisor);
         int currentPointer = 0;
+        if (dividend < 0) {
+            currentPointer = 1;
+        }
         String dividendStr = String.valueOf(dividend);
 
         while (currentPointer < dividendStr.length()) {
@@ -31,6 +44,9 @@ public class DivideTwoIntegersQ29 {
             while (currentMath >= divisor) {
                 currentMath = currentMath - divisor;
                 ans++;
+                // if (ans++ >= 10) {
+                // ans = ans*1
+                // }
                 if (currentMath - divisor < 0) {
                     extraValue = currentMath;
                     break;
@@ -38,9 +54,10 @@ public class DivideTwoIntegersQ29 {
 
             }
             if (extraValue > 0) {
-                currentPointer += 2;
+                currentPointer += 1;
             } else {
-                currentPointer += 3;
+                currentPointer += 2;
+
             }
             if (currentPointer < dividendStr.length()) {
                 ans = ans * 10;
