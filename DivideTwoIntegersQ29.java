@@ -1,9 +1,8 @@
 public class DivideTwoIntegersQ29 {
     public static void main(String[] args) {
-        int dividend = -2147483648;
-        int divisor = -1;
-        String test = String.valueOf(-1);
-        System.out.println(test);
+        int dividend = 2147483647;
+        int divisor = 1;
+
         System.out.println(divide(dividend, divisor));
 
     }
@@ -13,7 +12,7 @@ public class DivideTwoIntegersQ29 {
         int minInt = -2147483648;
 
         int ans = 0;
-        int extraValue = 0;
+        String extraValue = "";
         int originalDivisor = divisor;
         int originalDividend = dividend;
         // if (dividend == minInt) {
@@ -34,33 +33,39 @@ public class DivideTwoIntegersQ29 {
 
         while (currentPointer < dividendStr.length()) {
             int currentMath = Integer.parseInt(dividendStr.substring(currentPointer, currentPointer + 1));
-            if (extraValue <= 0 && currentPointer + 1 < dividendStr.length()) {
-                currentMath = Integer.parseInt(dividendStr.substring(currentPointer, currentPointer + 2));
+            if (extraValue.length() <= 0 && currentPointer + 1 < dividendStr.length()) {
+                currentMath = Integer.parseInt(dividendStr.substring(currentPointer, currentPointer + 2) + extraValue);
             }
-            if (extraValue > 0) {
-                currentMath = extraValue * 10 + currentMath;
-            }
-
+            int currentans = 0;
+            boolean isNegative = true;
             while (currentMath >= divisor) {
+
                 currentMath = currentMath - divisor;
+                currentans++;
                 ans++;
-                // if (ans++ >= 10) {
-                // ans = ans*1
-                // }
-                if (currentMath - divisor < 0) {
-                    extraValue = currentMath;
+                if (currentans + 1 > 10 && isNegative && currentPointer > 0) {
+                    String temp = String.valueOf(ans);
+                    temp = temp + "0";
+                    ans = Integer.parseInt(temp);
+                    isNegative = false;
+                }
+                if (currentMath - divisor < 0 && currentMath % divisor == 1) {
+                    String temp = String.valueOf(currentMath);
+                    extraValue = temp;
                     break;
                 }
 
             }
-            if (extraValue > 0) {
+            if (extraValue.length() > 0) {
                 currentPointer += 1;
             } else {
                 currentPointer += 2;
 
             }
             if (currentPointer < dividendStr.length()) {
-                ans = ans * 10;
+                String temp = String.valueOf(ans);
+                temp = temp + "0";
+                ans = Integer.parseInt(temp);
             }
 
         }
