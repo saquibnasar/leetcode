@@ -1,13 +1,16 @@
 public class DivideTwoIntegersQ29 {
     public static void main(String[] args) {
         int dividend = 2147483647;
-        int divisor = 1;
+        int divisor = 2;
 
         System.out.println(divide(dividend, divisor));
 
     }
 
     public static int divide(int dividend, int divisor) {
+        if ((dividend <= Integer.MIN_VALUE) && (divisor == -1)) {
+            return Integer.MAX_VALUE;
+        }
         int maxInt = 2147483647;
         int minInt = -2147483648;
 
@@ -35,6 +38,7 @@ public class DivideTwoIntegersQ29 {
             int currentMath = Integer.parseInt(dividendStr.substring(currentPointer, currentPointer + 1));
             if (extraValue.length() <= 0 && currentPointer + 1 < dividendStr.length()) {
                 currentMath = Integer.parseInt(dividendStr.substring(currentPointer, currentPointer + 2) + extraValue);
+                currentPointer++;
             }
             int currentans = 0;
             boolean isNegative = true;
@@ -43,25 +47,22 @@ public class DivideTwoIntegersQ29 {
                 currentMath = currentMath - divisor;
                 currentans++;
                 ans++;
-                if (currentans + 1 > 10 && isNegative && currentPointer > 0) {
-                    String temp = String.valueOf(ans);
-                    temp = temp + "0";
-                    ans = Integer.parseInt(temp);
-                    isNegative = false;
-                }
                 if (currentMath - divisor < 0 && currentMath % divisor == 1) {
                     String temp = String.valueOf(currentMath);
                     extraValue = temp;
                     break;
                 }
+                if (currentans + 1 > 9 && isNegative && currentPointer > 1) {
+                    String temp = String.valueOf(ans);
+                    String temp2 = temp.substring(temp.length() - 1, temp.length());
+                    temp = temp.substring(0, temp.length() - 1);
+                    temp = temp + "0" + temp2;
+                    ans = Integer.parseInt(temp);
+                    isNegative = false;
+                }
 
             }
-            if (extraValue.length() > 0) {
-                currentPointer += 1;
-            } else {
-                currentPointer += 2;
-
-            }
+            currentPointer++;
             if (currentPointer < dividendStr.length()) {
                 String temp = String.valueOf(ans);
                 temp = temp + "0";
