@@ -27,33 +27,25 @@ public class LetterCombinationsofPhoneNumberQ17 {
 
         for (int i = 0; i < digits.length(); i++) {
             String ans = phonHashMap.get(digits.charAt(i));
-            if (result.size() > 0) {
-                List<String> temp = new ArrayList<>(result);
-                for (int j = 0; j < ans.length() - 1; j++) {
-
-                    result.addAll(temp);
-                }
-            }
+            List<String> temp = new ArrayList<>(result);
             for (int j = 0; j < ans.length(); j++) {
 
                 if (i > 0) {
-                    for (int j2 = 0; j2 < result.size(); j2++) {
-
-                        result.add(j2, result.get(j2) + ans.substring(j, j + 1));
+                    for (int j2 = temp.size() * j; j2 < result.size(); j2++) {
+                        result.set(j2, result.get(j2) + ans.substring(j, j + 1));
                     }
                 } else {
                     result.add(ans.substring(j, j + 1));
+                }
+                if (i > 0 && j < ans.length() - 1) {
+                    result.addAll(temp);
+
                 }
             }
 
         }
 
-        return new ArrayList<>();
-    }
-
-    public static List<String> backtraking(String digits, int current, List<String> result) {
-
-        return new ArrayList<>();
+        return result;
     }
 
 }
