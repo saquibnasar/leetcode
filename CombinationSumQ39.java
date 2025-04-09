@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class CombinationSumQ39 {
@@ -8,7 +9,8 @@ public class CombinationSumQ39 {
     }
 
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
 
-        return null;
+        return result;
     }
 }
