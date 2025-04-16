@@ -10,7 +10,7 @@ public class CombinationSumQ39 {
 
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
-
+        List<Integer> currentCombination = new ArrayList<>();
         return result;
     }
 }
