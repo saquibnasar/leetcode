@@ -4,18 +4,19 @@ public class MazeProblemsQ1 {
 
     public static void main(String[] args) {
 
-        System.out.println(findPathcount(3, 3));
+        System.out.println(findPath(3, 3, ""));
     }
 
-    public static int findPath(int r, int c) {
+    public static String[] findPath(int r, int c, String p) {
         if (r == 1 || c == 1) {
-            return 1;
+            return new String[] { p };
         }
 
-        int right = findPath(r - 1, c);
+        String[] right = findPath(r - 1, c, p + "R");
 
-        int left = findPath(r, c - 1);
-        return 1;
+        String[] left = findPath(r, c - 1, p + "D");
+        System.out.println(right[0] + " " + left[0]);
+        return new String[] { right[0], left[0] };
     }
 
     public static int findPathcount(int r, int c) {
