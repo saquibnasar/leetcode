@@ -1,8 +1,34 @@
 package Dsa;
 
+class Student {
+    String name;
+    int rollno;
+
+    // public Student(String name, int rollno) {
+    // this.name = name;
+    // this.rollno = rollno;
+    // }
+
+    public Student() {
+        // this.color = color;
+        // this.brand = brand;
+    }
+
+    public void printValue() {
+        System.out.println("Name: " + name + " Roll no: " + rollno);
+    }
+
+    public Student(Student s) {
+        this.name = s.name;
+        this.rollno = s.rollno;
+    }
+
+}
+
 public class MazeProblemsQ1 {
 
     public static void main(String[] args) {
+        Student s1 = new Student();
 
         System.out.println(findPath(3, 3, ""));
     }
