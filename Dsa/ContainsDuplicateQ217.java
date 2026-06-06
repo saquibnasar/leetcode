@@ -1,21 +1,23 @@
 package Dsa;
 
+import java.util.HashMap;
+
 public class ContainsDuplicateQ217 {
     public static void main(String[] args) {
-        int[] arr = { 1, 2, 3, 4, 5, 1 };
+        int[] arr = { 3, 3 };
         System.out.println(containsDuplicate(arr));
     }
 
-    public static boolean containsDuplicate(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return false;
-        }
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] == arr[j]) {
-                    return true;
-                }
+    public static boolean containsDuplicate(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+
+            if (map.containsKey(nums[i])) {
+                return true;
+            } else {
+                map.put(nums[i], i);
             }
+
         }
         return false;
     }
